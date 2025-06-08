@@ -256,7 +256,7 @@ En este proyecto se han implementado varios patrones de diseño para resolver pr
 ```python
 # Ejemplo de uso
 db = DatabaseConnection()
-db.connect("localhost", "user", "pass", "sales_db")
+db.connect("localhost", "user", "pass", "ventas_db")
 connection = db.get_connection()
 ```
 
@@ -370,7 +370,7 @@ ENV=development
 DB_HOST=localhost
 DB_USER=tu_usuario
 DB_PASSWORD=tu_password
-DB_NAME=sales_db
+DB_NAME=ventas_db
 DB_PORT=3306
 
 # Nivel de logging
