@@ -21,14 +21,13 @@ class TestSingletonPattern:
         """Prueba la gestión de la conexión."""
         db, _ = mock_db_connection
         
-        # Verificar que la conexión está establecida
+        # Verificar conexión
         connection = db.get_connection()
         assert connection is not None
         
         # Cerrar conexión
         db.close()
         
-        # Verificar que lanza error al intentar obtener la conexión cerrada
         with pytest.raises(RuntimeError):
             db.get_connection()
 

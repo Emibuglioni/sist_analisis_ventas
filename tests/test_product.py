@@ -83,13 +83,13 @@ def test_get_storage_instructions(sample_product):
     assert "Vida útil: 365 días desde fabricación" in instructions
     assert "¡PRECAUCIÓN! Producto alergénico" not in instructions
 
-def test_get_storage_instructions_allergic():
+def test_get_storage_instructions_allergic(sample_category):
     """Prueba las instrucciones de almacenamiento para producto alérgico."""
     product = Product(
         product_id=3,
         product_name="Nueces",
         price=9.99,
-        category=sample_product.category,
+        category=sample_category,
         product_class="Food",
         modify_date=datetime.now(),
         resistant=False,

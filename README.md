@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 
-Este proyecto implementa un sistema de análisis de ventas para una startup con múltiples sucursales, utilizando Python y siguiendo los principios de Programación Orientada a Objetos (POO). El sistema está diseñado para gestionar y analizar datos de ventas, productos, clientes y empleados de manera eficiente y escalable.
+Este proyecto implementa un sistema de análisis de ventas para una startup con múltiples sucursales, utilizando Python y siguiendo los principios de POO. El sistema está diseñado para gestionar y analizar datos de ventas, productos, clientes y empleados de manera eficiente y escalable.
 
 ## ¿Qué se hizo?
 
@@ -84,7 +84,7 @@ classDiagram
 #### Python como Lenguaje Principal
 - **Ventajas**:
   - Excelente soporte para POO
-  - Rica biblioteca estándar
+  - Muy buena biblioteca estándar
   - Facilidad de mantenimiento
   - Gran comunidad y ecosistema
 - **Uso en el Proyecto**:
@@ -96,7 +96,7 @@ classDiagram
 - **Ventajas**:
   - Robusto sistema de tipos
   - Soporte para relaciones
-  - Buen rendimiento con grandes volúmenes
+  - Buen rendimiento para este proyecto
   - Herramientas de administración maduras
 - **Uso en el Proyecto**:
   - Almacenamiento persistente
@@ -125,12 +125,10 @@ classDiagram
   - **Publicación y Distribución**:
     - Facilita el empaquetado y publicación
     - Gestión de metadatos del proyecto en `pyproject.toml`
-    - Compatibilidad con PEP 517/518
 
   - **Desarrollo Moderno**:
     - Integración con herramientas modernas de desarrollo
     - Soporte para type hints y mypy
-    - Mejor experiencia de desarrollo con autocompletado
 
   - **Mantenibilidad**:
     - Archivo `pyproject.toml` más legible y estructurado
@@ -382,6 +380,30 @@ SECRET_KEY=tu-clave-secreta-aqui
 ```
 
 **IMPORTANTE**: Nunca subas el archivo `.env` al repositorio. Este archivo contiene información sensible y está incluido en `.gitignore`.
+
+### Instalación de Dependencias
+
+El proyecto requiere python-dotenv para manejar las variables de entorno:
+
+```bash
+pip install python-dotenv
+```
+
+### Uso en el Código
+
+La configuración se maneja a través del módulo `src/config.py`:
+
+```python
+from src.config import Config
+
+# Usar configuración de base de datos
+db = DatabaseConnection()
+db.connect()  # Usa automáticamente las credenciales del .env
+
+# Acceder a otras configuraciones
+debug_mode = Config.DEBUG
+log_level = Config.LOG_LEVEL
+```
 
 ## Notebook de Demostración (demo_integracion.ipynb)
 

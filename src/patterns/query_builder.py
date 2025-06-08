@@ -34,7 +34,6 @@ class SQLQueryBuilder:
     
     def join(self, table: str, condition: str, join_type: str = "INNER") -> 'SQLQueryBuilder':
         """Agrega una cláusula JOIN."""
-        # Reemplazar los marcadores de posición con %s
         condition = self._convert_named_params(condition)
         join_clause = f"{join_type} JOIN {table} ON {condition}"
         self._joins.append(join_clause)
@@ -48,7 +47,6 @@ class SQLQueryBuilder:
             condition: Condición SQL usando %s como placeholder
             parameters: Diccionario de parámetros para la condición
         """
-        # Reemplazar los marcadores de posición con %s
         condition = self._convert_named_params(condition)
         self._where_conditions.append(condition)
         if parameters:
@@ -62,7 +60,6 @@ class SQLQueryBuilder:
     
     def having(self, condition: str) -> 'SQLQueryBuilder':
         """Agrega una condición HAVING."""
-        # Reemplazar los marcadores de posición con %s
         condition = self._convert_named_params(condition)
         self._having.append(condition)
         return self

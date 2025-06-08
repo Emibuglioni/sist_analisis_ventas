@@ -71,7 +71,7 @@ def test_get_discount_percentage(sample_sale):
     # Porcentaje de descuento: 10%
     assert sample_sale.get_discount_percentage() == pytest.approx(10.0)
 
-def test_get_discount_percentage_zero_price():
+def test_get_discount_percentage_zero_price(sample_sale):
     """Prueba el cálculo del porcentaje de descuento con precio cero."""
     sale = Sale(
         sale_id=3,

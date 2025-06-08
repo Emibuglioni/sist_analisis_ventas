@@ -1,8 +1,6 @@
--- Crear db
 CREATE DATABASE IF NOT EXISTS ventas_db;
 USE ventas_db;
 
--- Crear tablas según la estructura de los archivos
 CREATE TABLE IF NOT EXISTS categories (
     CategoryID INT PRIMARY KEY,
     CategoryName VARCHAR(50) NOT NULL

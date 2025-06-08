@@ -52,7 +52,6 @@ class ProductReport(Report):
     
     def generate(self) -> Dict[str, Any]:
         """Genera un reporte de productos más vendidos y rentables."""
-        # Los datos ya vienen agrupados por producto de la consulta SQL
         top_products = [
             {
                 "producto_id": sale.get('ProductID', 0),
@@ -63,12 +62,11 @@ class ProductReport(Report):
             for sale in self.sales_data
         ]
         
-        # Ordenar productos por ingresos
         top_products.sort(key=lambda x: x["ingresos_totales"], reverse=True)
         
         return {
             "tipo": "Reporte de Productos",
-            "productos_top": top_products[:10],  # Top 10 productos
+            "productos_top": top_products[:10], 
             "total_productos": len(self.sales_data)
         }
 
@@ -80,7 +78,6 @@ class EmployeeReport(Report):
     
     def generate(self) -> Dict[str, Any]:
         """Genera un reporte de desempeño de empleados."""
-        # Los datos ya vienen agrupados por empleado de la consulta SQL
         employee_metrics = [
             {
                 "empleado_id": sale.get('EmployeeID', 0),

@@ -11,7 +11,6 @@ from src.config import Config
 
 class DatabaseConnection:
     """
-    Singleton que maneja la conexión a la base de datos.
     Garantiza una única instancia de conexión en toda la aplicación.
     """
     
@@ -27,7 +26,7 @@ class DatabaseConnection:
     def __init__(self) -> None:
         """Inicializa la conexión si no existe."""
         if self._connection is None:
-            self._connection = None  # Se inicializará en connect()
+            self._connection = None  
     
     def connect(self) -> None:
         """
@@ -71,11 +70,9 @@ class DatabaseConnection:
         cursor = self._connection.cursor(dictionary=True)
         
         try:
-            # Si los parámetros son un diccionario, convertirlos a lista
             if isinstance(params, dict):
                 params = list(params.values())
             
-            # Ejecutar la consulta
             cursor.execute(query, params or ())
             results = cursor.fetchall()
             return pd.DataFrame(results)
@@ -140,7 +137,6 @@ class DatabaseConnection:
         query, params = builder.build()
         df = self.execute_query(query, params)
         
-        # Calcular métricas adicionales
         if not df.empty:
             df['promedio_venta'] = df['total_revenue'] / df['total_sales']
             
@@ -151,7 +147,7 @@ class DatabaseConnection:
         Obtiene las ventas agrupadas por categoría de producto.
         
         Args:
-            start_date: Fecha desde la cual analizar (opcional)
+            start_date: Fecha desde la cual analizar 
             
         Returns:
             DataFrame con ventas por categoría
