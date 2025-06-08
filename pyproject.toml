@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "sistema-analisis-ventas"
+version = "0.1.0"
+description = "Sistema de análisis y procesamiento de datos de ventas para múltiples sucursales"
+authors = ["Data Engineer Team"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.1.0"
+numpy = "^1.24.3"
+mysql-connector-python = "^8.1.0"
+python-dotenv = "^1.0.0"
+sqlalchemy = "^2.0.20"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+black = "^23.7.0"
+flake8 = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api" 
