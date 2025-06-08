@@ -61,6 +61,7 @@ proyecto/
     ├── test_employee.py
     ├── test_product.py
     └── test_sale.py
+    └── test_patterns.py
 ```
 
 ### Jerarquía de Clases
@@ -382,30 +383,6 @@ SECRET_KEY=tu-clave-secreta-aqui
 
 **IMPORTANTE**: Nunca subas el archivo `.env` al repositorio. Este archivo contiene información sensible y está incluido en `.gitignore`.
 
-### Instalación de Dependencias
-
-El proyecto requiere python-dotenv para manejar las variables de entorno:
-
-```bash
-pip install python-dotenv
-```
-
-### Uso en el Código
-
-La configuración se maneja a través del módulo `src/config.py`:
-
-```python
-from src.config import Config
-
-# Usar configuración de base de datos
-db = DatabaseConnection()
-db.connect()  # Usa automáticamente las credenciales del .env
-
-# Acceder a otras configuraciones
-debug_mode = Config.DEBUG
-log_level = Config.LOG_LEVEL
-```
-
 ## Notebook de Demostración (demo_integracion.ipynb)
 
 ### Descripción General
@@ -423,7 +400,7 @@ Cada sección del notebook incluye:
 # Activar entorno virtual
 poetry shell
 
-# Lanzar Jupyter
+# Jupyter
 jupyter notebook demo_integracion.ipynb
 ```
 
